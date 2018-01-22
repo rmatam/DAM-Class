@@ -98,6 +98,7 @@ Plot_Wordc = function(dtm){    # plot wordcloud func opens.
 
 ######### ggplot
 Plot_BarChart = function(dtm){
+  library(ggplot2)
   freq <- sort(colSums(as.matrix(dtm)), decreasing=TRUE)
   wf <- data.frame(word=names(freq), freq=freq)
   # Plot Histogram
