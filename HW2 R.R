@@ -97,12 +97,12 @@ Plot_Wordc = function(dtm){    # plot wordcloud func opens.
 ################  Bar Graphs Fuction #########
 
 ######### ggplot
-Plot_BarChart = function(dtm){
+Plot_BarChart = function(dtm ,n){
   library(ggplot2)
   freq <- sort(colSums(as.matrix(dtm)), decreasing=TRUE)
   wf <- data.frame(word=names(freq), freq=freq)
   # Plot Histogram
-  p<- subset(wf, freq>40)    %>%
+  p<- subset(wf, freq>n)    %>%
     ggplot(aes(word, freq)) +
     geom_bar(stat="identity", fill="darkred", colour="darkgreen") +
     theme(axis.text.x=element_text(angle=45, hjust=1))
@@ -161,7 +161,8 @@ Plot_distill_cog = function(dtm, s , k1 ){
   
 } # Plot_distill_cog  func ends
 
-total_plot <- function(x ,s,## no. of central nodes in COG
+total_plot <- function(x ,n,#### Freq in Bar graph
+                       s,## no. of central nodes in COG
                       k1 ){  # max no. of connections in COG
  dtm<-x
  dtm%>%Plot_BarChart()
