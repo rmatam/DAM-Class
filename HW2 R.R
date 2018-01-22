@@ -165,7 +165,7 @@ total_plot <- function(x ,n,#### Freq in Bar graph
                        s,## no. of central nodes in COG
                       k1 ){  # max no. of connections in COG
  dtm<-x
- dtm%>%Plot_BarChart()
+ dtm%>%Plot_BarChart(n)
   
  dtm%>%Plot_Wordc() 
  
