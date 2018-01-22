@@ -110,9 +110,8 @@ Plot_BarChart = function(dtm){
 
 ################ COG
 
-Plot_distill_cog = function(dtm, # input DTM ){   
-  s<-5
-  k1<-10
+Plot_distill_cog = function(dtm, s , k1 ){   
+ 
   
   dtm1 = as.matrix(dtm)   # need it as a regular matrix for matrix ops like %*% to apply
   adj.mat = t(dtm1) %*% dtm1    # making a square symmatric term-term matrix 
@@ -159,11 +158,12 @@ Plot_distill_cog = function(dtm, # input DTM ){
   
 } # Plot_distill_cog  func ends
 
-total_plot <- function(x){  
+total_plot <- function(x ,s,## no. of central nodes in COG
+                      k1 ){  # max no. of connections in COG
  dtm<-x
  dtm%>%Plot_Wordc() 
  dtm%>%Plot_BarChart()
- dtm%>%Plot_distill_cog()
+ dtm%>%Plot_distill_cog(s,k1)
 
 }
 
