@@ -6,6 +6,7 @@ if (!require(tm)) {install.packages("tm")}
 #if (!require(RWeka)) {install.packages("RWeka")}
 if (!require(wordcloud)) {install.packages("wordcloud")}
 if (!require(ggplot)) {install.packages("ggplot")}
+if (!require(ggplot2)) {install.packages("ggplot2")}
 if (!require(dplyr)) {install.packages("dplyr")}
 library(tidytext)
 library(data.table)
