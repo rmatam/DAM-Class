@@ -110,10 +110,7 @@ Plot_BarChart = function(dtm){
 
 ################ COG
 
-Plot_distill_cog = function(dtm, # input DTM  
-                       title, # title for the graph
-                       s,    # no. of central nodes
-                       k1){  # max no. of connections  
+Plot_distill_cog = function(dtm, # input DTM ){   
   s<-5
   k1<-10
   
