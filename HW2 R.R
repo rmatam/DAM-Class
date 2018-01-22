@@ -163,8 +163,10 @@ Plot_distill_cog = function(dtm, s , k1 ){
 total_plot <- function(x ,s,## no. of central nodes in COG
                       k1 ){  # max no. of connections in COG
  dtm<-x
- dtm%>%Plot_Wordc() 
  dtm%>%Plot_BarChart()
+  
+ dtm%>%Plot_Wordc() 
+ 
  dtm%>%Plot_distill_cog(s,k1)
 
 }
