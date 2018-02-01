@@ -34,6 +34,7 @@ text_clean <- function(corpus,
   stop_wrds     <-   unique(c(user_stpw , stop_words$word))
   text          <-   corpus
   text          <-   gsub("<.*?>", " ", text)              # regex for removing HTML tags
+  text          <-  iconv(text, "latin1", "ASCII", sub="") # Keep only ASCII characters
   text          <-   tolower(text) 
   text          <-   gsub("^\\s+|\\s+$", "", text)          # remove leading and trailing white space
   text          <-   removeWords(text,stop_wrds)
@@ -50,7 +51,7 @@ text_clean <- function(corpus,
 
 sentiment_analysis<- function(data_frame ){
   textdf<- data_frame
-afinn <-textdf %>% ungroup() %>%
+  afinn <-textdf %>% ungroup() %>%
   unnest_tokens(word, text) %>% 
   inner_join(get_sentiments("afinn")) %>% 
   group_by(index = document%/% 1) %>% 
