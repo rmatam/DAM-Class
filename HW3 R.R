@@ -34,7 +34,8 @@ text_clean <- function(corpus,
   stop_wrds     <-   unique(c(user_stpw , stop_words$word))
   text          <-   corpus
   text          <-   gsub("<.*?>", " ", text)              # regex for removing HTML tags
-  text          <-  iconv(text, "latin1", "ASCII", sub="") # Keep only ASCII characters
+  text          <-   iconv(text, "latin1", "ASCII", sub="") # Keep only ASCII characters
+  text          <-   gsub("[^[:alnum:]]", " ",  text )        # keep only alpha numeric 
   text          <-   tolower(text) 
   text          <-   gsub("^\\s+|\\s+$", "", text)          # remove leading and trailing white space
   text          <-   removeWords(text,stop_wrds)
